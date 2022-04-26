@@ -1,47 +1,38 @@
 package ru.netology.service;
 
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.testng.AssertJUnit.*;
 
-class CashbackHackServiceTest {
+
+public class CashbackHackServiceTest {
+    CashbackHackService service = new CashbackHackService();
 
     @Test
-    void shouldCountRemainsBeforeMax(){
-        CashbackHackService service = new CashbackHackService();
+    public void shouldCountRemainsBeforeMax() {
         int amount = 999;
-
         int expected = 1;
-        int actual = service.remain(amount);
-        assertEquals(expected, actual);
+        assertEquals(service.remain(amount), expected);
     }
 
     @Test
-    void shouldCountRemainsAfterMin(){
-        CashbackHackService service = new CashbackHackService();
+    public void shouldCountRemainsAfterMin() {
         int amount = 1;
-
         int expected = 999;
-        int actual = service.remain(amount);
-        assertEquals(expected, actual);
+        assertEquals(service.remain(amount), expected);
     }
 
     @Test
-    void shouldCountRemainsWithoutPurchase(){
-        CashbackHackService service = new CashbackHackService();
+    public void shouldCountRemainsWithoutPurchase() {
         int amount = 0;
-
         int expected = 1000;
-        int actual = service.remain(amount);
-        assertEquals(expected, actual);
+        assertEquals(service.remain(amount), expected);
     }
-    @Test
-    void shouldCountRemains(){
-        CashbackHackService service = new CashbackHackService();
-        int amount = 200;
 
+    @Test
+    public void shouldCountRemains() {
+        int amount = 200;
         int expected = 800;
-        int actual = service.remain(amount);
-        assertEquals(expected, actual);
+        assertEquals(service.remain(amount), expected);
     }
 }
