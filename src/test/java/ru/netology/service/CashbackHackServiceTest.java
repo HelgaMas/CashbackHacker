@@ -35,4 +35,11 @@ public class CashbackHackServiceTest {
         int expected = 800;
         assertEquals(service.remain(amount), expected);
     }
+    
+    @Test
+    public void shouldCountRemainsWithError() {
+        int amount = 1000;
+        int expected = 0;
+        assertEquals(service.remain(amount), expected);
+    }
 }
